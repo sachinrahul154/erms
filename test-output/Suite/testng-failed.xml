@@ -11,14 +11,8 @@
       <class name="com.hrms.testcase.admin.LoginAdmin">
         <methods>
           <include name="AdminLogin"/>
-          <include name="FalseLogin"/>
         </methods>
       </class> <!-- com.hrms.testcase.admin.LoginAdmin -->
-      <class name="com.hrms.testcase.admin.TestData">
-        <methods>
-          <include name="Testn"/>
-        </methods>
-      </class> <!-- com.hrms.testcase.admin.TestData -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
