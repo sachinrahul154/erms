@@ -6,22 +6,13 @@ import org.testng.annotations.Test;
 
 public class LoginAdmin extends BasePackage {
 
-@Test (groups = "Smoke")
+@Test 
 public void AdminLogin()
 {
  driver.findElement(By.xpath(OR.getProperty("admin_username"))).sendKeys("admin");
+ log.info("username Entered");
  driver.findElement(By.xpath(OR.getProperty("admin_password"))).sendKeys("test@123");
+ log.info("password entered");
  driver.findElement(By.xpath(OR.getProperty("admin_login"))).click();
-}
-@Test(groups="Smoke")
-public void FalseLogin()
-{
- driver.findElement(By.xpath(OR.getProperty("admin_username"))).sendKeys("admin");
- driver.findElement(By.xpath(OR.getProperty("admin_password"))).sendKeys("test@123");
- driver.findElement(By.xpath(OR.getProperty("admin_login"))).click();
-}
-public void adminLogin() {
-	
-	
 }
 }
