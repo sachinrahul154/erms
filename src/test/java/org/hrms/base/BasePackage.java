@@ -12,19 +12,24 @@ import org.testng.annotations.BeforeTest;
 
 public class BasePackage {
 
+	
 	/*
 	 * WebDriver --- Done Properties ---- Done Logs
 	 * log4J,.log,log4j.properties,logger ---Done Extent Reports Mail
 	 */
 
-	public  WebDriver driver;
+	public static WebDriver driver =null;
 	public static Properties Config = new Properties();
 	public static Properties OR = new Properties();
 	public static FileInputStream fis;
 	public Logger log = Logger.getLogger(BasePackage.class);
-	@BeforeTest
+	
+    
+	@BeforeTest(alwaysRun = true)
+	
 	public void setup() throws Exception {
-
+         
+		
 		try {
 			fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\Properties\\config.properties");
 			Config.load(fis);
@@ -44,7 +49,7 @@ public class BasePackage {
 
 		if (Config.getProperty("browser").equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "\\src\\test\\Driver\\chromedriver.exe");
+				System.getProperty("user.dir") + "\\src\\test\\Driver\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.get(Config.getProperty("url"));
 		} else {
@@ -52,9 +57,13 @@ public class BasePackage {
 		}
 	}
 
-	@AfterMethod
-	public void aftermethod() {
-		driver.quit();
+	@AfterMethod(alwaysRun = true)
+	public static void closeBrowser() throws Exception{
+	    if (driver == null) {
+	        return;
+	    }
+	    driver.quit();
+	    driver = null;
 	}
 
 }
