@@ -32,7 +32,7 @@ public void AdminLogin()
  	String Actual_Url="http://localhost/erms/erms/admin/welcome.php";
   	Assert.assertEquals(Actual_Url, Expected_Url);
 }
-@Test()
+@Test(groups= {"Smoke"})
 public void FalseAdminLogin()
 {
 	PageFactory.initElements(driver,LoginAdmin.class);
