@@ -16,9 +16,11 @@ static WebElement password;
 @FindBy(how =How.XPATH,using="//input[@name='login']")
 static WebElement login;
 
+
 @Test(groups= {"Smoke","Regression"})
 public void AdminLogin()
-{
+{   BasePackage.initialiseBrowser();
+	driver.get(Config.getProperty("url"));
 	PageFactory.initElements(driver,LoginAdmin.class);
 	log.info("Page Loaded Successfully");
 	username.sendKeys(OR.getProperty("admin"));
@@ -35,6 +37,8 @@ public void AdminLogin()
 @Test(groups= {"Smoke"})
 public void FalseAdminLogin()
 {
+	BasePackage.initialiseBrowser();
+	driver.get(Config.getProperty("url"));
 	PageFactory.initElements(driver,LoginAdmin.class);
 	log.info("Page Loaded Successfully");
 	username.sendKeys(OR.getProperty("admin1"));

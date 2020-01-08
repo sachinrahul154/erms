@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" >
 	<listeners>
+	    <listener class-name="org.hrms.listeners.RetryListener"/>
 		<listener class-name="org.hrms.listeners.TestListener" />
 	</listeners>
 	<test name="testng">

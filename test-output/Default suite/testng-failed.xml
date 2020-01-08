@@ -5,9 +5,9 @@
     <classes>
       <class name="com.hrms.testcase.admin.LoginAdmin">
         <methods>
-          <include name="aftermethod"/>
-          <include name="AdminLogin"/>
           <include name="setup"/>
+          <include name="FalseAdminLogin"/>
+          <include name="closeBrowser"/>
         </methods>
       </class> <!-- com.hrms.testcase.admin.LoginAdmin -->
     </classes>

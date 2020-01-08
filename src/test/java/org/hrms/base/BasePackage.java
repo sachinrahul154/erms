@@ -24,6 +24,19 @@ public class BasePackage {
 	public static FileInputStream fis;
 	public Logger log = Logger.getLogger(BasePackage.class);
 	
+	public static void initialiseBrowser() 
+	{
+		
+		if (Config.getProperty("browser").equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver",
+			System.getProperty("user.dir") + "\\src\\test\\Driver\\chromedriver.exe");
+			driver = new ChromeDriver();
+		} 
+		else {
+			System.out.println("Not Found");
+		}
+		
+	}
     
 	@BeforeTest(alwaysRun = true)
 	
@@ -47,23 +60,13 @@ public class BasePackage {
 			e.printStackTrace();
 		}
 
-		if (Config.getProperty("browser").equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver",
-				System.getProperty("user.dir") + "\\src\\test\\Driver\\chromedriver.exe");
-			driver = new ChromeDriver();
-			driver.get(Config.getProperty("url"));
-		} else {
-			System.out.println("Not Found");
-		}
+		
 	}
 
 	@AfterMethod(alwaysRun = true)
-	public static void closeBrowser() throws Exception{
-	    if (driver == null) {
-	        return;
-	    }
-	    driver.quit();
-	    driver = null;
+	public  void closeBrowser(){
+			System.out.println("Driver Closed");
+	        driver.close();
 	}
 
 }
