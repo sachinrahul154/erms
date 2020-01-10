@@ -21,9 +21,10 @@ public class Utilities extends BasePackage {
 		Date d = new Date();
 		screenshotName =  d.toString().replace(":", "_").replace(" ", "_") + ".jpg";
 
-		FileUtils.copyFile(scrFile,
-				new File(System.getProperty("user.dir") + "\\target\\ScreenShot\\" + screenshotName));
+		FileUtils.copyFile(scrFile,new File(System.getProperty("user.dir") + "\\target\\ScreenShot\\" + screenshotName));
 
 	}
 
+	
+	
 }

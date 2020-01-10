@@ -15,6 +15,7 @@ public class TestListener  extends Utilities implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
       
+		System.setProperty("org.uncommons.reportng.escape-output","false");
 		try {
 			Utilities.captureScreenshot();
 			log.info("TestCase Failed Please Check !!!");

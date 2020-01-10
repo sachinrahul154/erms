@@ -4,6 +4,7 @@
   <listeners>
     <listener class-name="org.hrms.listeners.RetryListener"/>
     <listener class-name="org.hrms.listeners.TestListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
   </listeners>
   <test thread-count="5" name="testng(failed)">
     <groups>
@@ -14,7 +15,6 @@
     <classes>
       <class name="com.hrms.testcase.admin.LoginAdmin">
         <methods>
-          <include name="AdminLogin"/>
           <include name="setup"/>
           <include name="FalseAdminLogin"/>
           <include name="closeBrowser"/>
